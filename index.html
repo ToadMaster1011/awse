@@ -8,131 +8,381 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
   <style>
+    /* Combined CSS */
     /* General styles */
-    body {
-      font-family: 'Gloria Hallelujah', cursive;
-    }
+header {
+  background-color: #ADD8E6; /* Light blue background */
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align elements horizontally */
+  justify-content: center; /* Center align elements vertically */
+  position: relative;
+}
 
-    header {
-      background-color: #ADD8E6;
-      height: auto;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
+body {
+  font-family: 'Gloria Hallelujah', cursive;
+}
 
-    .logo {
-      position: absolute;
-      top: 5px;
-      left: calc(50% - 400px);
-      transform: translateX(-50%);
-      max-width: 150px;
-      height: auto;
-      z-index: 10;
-    }
+/* Position and style the logo */
+.logo {
+  position: absolute; /* Position the logo independently of the header */
+  top: 5px; /* Adjust the vertical position */
+  left: calc(50% - 400px); /* Move the logo 200px to the left */
+  transform: translateX(-50%); /* Center the logo horizontally */
+  max-width: 150px; /* Increase the size of the logo */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 10; /* Ensure the logo appears above other elements */
+}
 
-    header nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+header nav {
+  width: 100%;
+  text-align: center;
+}
 
-    header nav ul li a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      font-size: 1.2rem;
-      transition: color 0.3s ease;
-    }
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center align the navigation links */
+  gap: 20px; /* Add spacing between links */
+}
 
-    header nav ul li a:hover {
-      color: #FF6347;
-    }
+header nav ul li {
+  display: inline;
+}
 
-    .site-title-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 10px;
-    }
+header nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
 
-    .site-title {
-      font-family: 'Gloria Hallelujah', cursive;
-      font-size: 3rem;
-      position: relative;
-      z-index: 1;
-      display: inline-block;
-      line-height: 4rem;
-      height: 4rem;
-    }
+header nav ul li a:hover {
+  color: #FF6347; /* Change color on hover */
+}
 
-    .broom {
-      position: absolute;
-      left: 600px;
-      top: 10px;
-      width: 4rem;
-      height: 4rem;
-      background-image: url('broom-icon-png-10.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      z-index: 2;
-      animation: sweep 20s infinite;
-    }
+/* Site title container */
+.site-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px; /* Add spacing between the title and the nav */
+}
 
-    @keyframes sweep {
-      0% {
-        transform: translateX(0) rotate(0deg);
-      }
-      50% {
-        transform: translateX(620px) rotate(15deg);
-      }
-      100% {
-        transform: translateX(0) rotate(0deg);
-      }
-    }
+.site-title {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 3rem; /* Make the text bigger */
+  position: relative;
+  z-index: 1; /* Ensure the text is below the broom */
+  display: inline-block;
+  line-height: 4rem; /* Increase the line height */
+  height: 4rem; /* Set a fixed height */
+}
 
-    /* Slideshow container */
-    #slideshow-container {
-      width: 100%;
-      height: 800px;
-      overflow: hidden;
-      position: relative;
-    }
+.letter {
+  display: inline-block;
+  animation: fadeLetter 16s infinite; /* Sync with the broom animation */
+}
 
-    /* Slideshow images */
-    .slideshow-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0; /* Hide all images by default */
-      transition: opacity 1s ease-in-out; /* Smooth fade transition */
-    }
+.letter:nth-child(1) { animation-delay: 0s; }
+.letter:nth-child(2) { animation-delay: 0.2s; }
+.letter:nth-child(3) { animation-delay: 0.4s; }
+.letter:nth-child(4) { animation-delay: 0.6s; }
+.letter:nth-child(5) { animation-delay: 0.8s; }
+.letter:nth-child(6) { animation-delay: 1s; }
+.letter:nth-child(7) { animation-delay: 1.2s; }
+.letter:nth-child(8) { animation-delay: 1.4s; }
+.letter:nth-child(9) { animation-delay: 1.6s; }
+.letter:nth-child(10) { animation-delay: 1.8s; }
+.letter:nth-child(11) { animation-delay: 2s; }
+.letter:nth-child(12) { animation-delay: 2.2s; }
+.letter:nth-child(13) { animation-delay: 2.4s; }
+.letter:nth-child(14) { animation-delay: 2.6s; }
+.letter:nth-child(15) { animation-delay: 2.8s; }
+.letter:nth-child(16) { animation-delay: 3s; }
 
-    .slideshow-image.active {
-      opacity: 1; /* Show the active image */
-      z-index: 1; /* Ensure the active image is on top */
-    }
+@keyframes fadeLetter {
+  0%, 100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Fully invisible as the broom passes */
+  }
+}
 
-    @media (max-width: 768px) {
-      header .logo {
-        top: 90px;
-        left: 50px;
-        max-width: 50%;
-      }
+.broom {
+  position: absolute;
+  left: 600px;
+  top: 10px; /* Align the broom with the top of the text */
+  width: 4rem; /* Match the height of the text */
+  height: 4rem; /* Match the height of the text */
+  background-image: url('broom-icon-png-10.jpg'); /* Replace with the path to your broom image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2; /* Ensure the broom is above the text */
+  animation: sweep 20s infinite; /* Slow down the animation */
+}
 
-      #slideshow-container {
-        height: 400px; /* Adjust slideshow height for mobile */
-      }
-    }
+@keyframes sweep {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(620px) rotate(15deg); /* Adjust distance and angle */
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+/* Calendar styles */
+#calendar-container {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+}
+
+#calendar {
+  margin: 10px 0;
+}
+
+#calendar table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#calendar th, #calendar td {
+  border: 1px solid #808080;
+  padding: 10px;
+  text-align: center;
+}
+
+#calendar th {
+  background-color: #ece8e8;
+}
+
+#calendar td {
+  height: 100px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#calendar td.booked {
+  background-color: #ffcccc;
+}
+
+#legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.legend-item .circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.legend-item .available {
+  background-color: #00b400;
+}
+
+.legend-item .unavailable {
+  background-color: #c50000;
+}
+
+.popup-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 15px; /* Reduce padding */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 450px;
+  max-width: 90%; /* Ensure it fits smaller screens */
+  max-height: 800px; /* Limit the height */
+  overflow-y: auto; /* Add scrolling if content overflows */
+  border-radius: 8px; /* Add rounded corners */
+}
+
+.popup-window h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 10px; /* Reduce spacing below the title */
+}
+
+.popup-window form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  gap: 10px; /* Reduce spacing between form elements */
+}
+
+.popup-window form label {
+  font-weight: bold;
+  margin-bottom: 5px; /* Reduce spacing below labels */
+}
+
+.popup-window form input,
+.popup-window form select {
+  width: 100%; /* Make inputs and selects take full width */
+  padding: 8px; /* Reduce padding inside inputs */
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Add rounded corners */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.popup-window form input[type="submit"] {
+  background-color: #00b400;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.popup-window form input[type="submit"]:hover {
+  background-color: #008f00; /* Darker green on hover */
+}
+
+.popup-window .close-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 100%; 
+  align-self: flex-end; /* Align the button to the right */
+}
+
+.popup-window .close-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+/* Slideshow container */
+#slideshow-container {
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Slideshow images */
+.slideshow-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* Hide all images by default */
+  transition: opacity 1s ease-in-out; /* Smooth fade transition */
+}
+
+.slideshow-image.active {
+  opacity: 1; /* Show the active image */
+  z-index: 1; /* Ensure the active image is on top */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  header {
+    height: auto; /* Adjust header height for mobile */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align elements to the left */
+  }
+
+  header .logo {
+    display: block; /* Ensure the logo is visible */
+    position: relative; /* Use relative positioning */
+    top: 90px; /* Reset top positioning */
+    left: 50px; /* Move the logo to the left */
+    transform: none; /* Remove centering transform */
+    max-width: 50%; /* Adjust the size of the logo for mobile */
+  }
+
+  .site-title-container {
+    display: none; /* Hide the site title */
+  }
+
+  nav {
+    margin-top: 0px; /* Add space below the logo for the navigation */
+    width: 100%; /* Ensure nav takes full width */
+  }
+
+  nav ul {
+    text-align: center; /* Center align text for mobile */
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center align links */
+  }
+
+  nav ul li {
+    display: block;
+    margin: 0px 0;
+  }
+
+  #calendar-container {
+    width: 100%;
+    margin: 10px 0;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+  }
+
+  #calendar table {
+    width: 100%; /* Ensure table fits the container */
+  }
+
+  #calendar td {
+    height: 50px; /* Adjust cell height for mobile */
+  }
+
+  .popup-window {
+    width: 90%; /* Make the popup take up 90% of the screen width */
+    max-height: 300px; /* Reduce the maximum height */
+    padding: 10px; /* Reduce padding */
+    font-size: 0.9rem; /* Slightly reduce font size for mobile */
+  }
+
+  .popup-window h2 {
+    font-size: 1.2rem; /* Reduce the title font size */
+    margin-bottom: 10px; /* Adjust spacing below the title */
+  }
+
+  .popup-window form {
+    gap: 8px; /* Reduce spacing between form elements */
+  }
+
+  .popup-window form input,
+  .popup-window form select {
+    padding: 6px; /* Reduce padding inside inputs */
+    font-size: 0.9rem; /* Adjust font size for inputs */
+  }
+
+  .popup-window form input[type="submit"],
+  .popup-window .close-button {
+    padding: 8px; /* Reduce button padding */
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+}
   </style>
 </head>
 <body>
@@ -167,24 +417,186 @@
     </nav>
   </header>
   <main>
+    <div id="calendar-container">
+      <div id="calendar"></div>
+    </div>
     <div id="slideshow-container">
-      <img src="IMG_20250319_163127.jpg" alt="Slideshow Image 1" class="slideshow-image active">
+      <img src="IMG_20250319_163127.jpg" alt="Slideshow Image 1" class="slideshow-image">
       <img src="IMG_20250319_163131.jpg" alt="Slideshow Image 2" class="slideshow-image">
       <img src="IMG_20250319_163134.jpg" alt="Slideshow Image 3" class="slideshow-image">
     </div>
   </main>
   <script>
-    // Slideshow JavaScript
-    const images = document.querySelectorAll('.slideshow-image');
-    let currentIndex = 0;
+const calendar = document.getElementById('calendar');
 
-    function showNextImage() {
-      images[currentIndex].classList.remove('active');
-      currentIndex = (currentIndex + 1) % images.length;
-      images[currentIndex].classList.add('active');
+const daysInMonth = 31;
+const calendarHTML = `
+  <h2>Calendar</h2>
+  <div id="legend">
+    <div class="legend-item">
+      <div class="circle available"></div>
+      <span>Available</span>
+    </div>
+    <div class="legend-item">
+      <div class="circle unavailable"></div>
+      <span>Unavailable</span>
+    </div>
+  </div>
+  <table>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+    ${getCalendarRows(daysInMonth)}
+  </table>
+`;
+
+calendar.innerHTML = calendarHTML;
+
+function getCalendarRows(daysInMonth) {
+  let rows = '';
+  let day = 1;
+  for (let i = 0; i < 5; i++) {
+    rows += '<tr>';
+    for (let j = 0; j < 7; j++) {
+      if (day <= daysInMonth) {
+        rows += `<td data-day="${day}" class="day-${day}">${day}</td>`;
+        day++;
+      } else {
+        rows += '<td></td>';
+      }
     }
+    rows += '</tr>';
+  }
+  return rows;
+}
 
-    setInterval(showNextImage, 5000); // Change image every 5 seconds
+// Add event listener to each table cell
+const tableCells = document.querySelectorAll('#calendar td');
+tableCells.forEach((cell) => {
+  if (cell.dataset.day) {
+    cell.addEventListener('click', () => {
+      const day = cell.dataset.day;
+      createPopupWindow(day);
+    });
+  }
+});
+
+// Function to create popup window
+function createPopupWindow(day) {
+  // Check if a popup window already exists
+  const existingPopup = document.querySelector('.popup-window');
+  if (existingPopup) {
+    existingPopup.remove();
+  }
+
+  const popupHTML = `
+    <div class="popup-window">
+      <h2>Day ${day}</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone"><br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"><br><br>
+        <label for="time">Time:</label>
+        <select id="time" name="time">
+          <option value="9:00 AM">9:00 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="1:00 PM">1:00 PM</option>
+          <option value="2:00 PM">2:00 PM</option>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+        </select><br><br>
+        <input type="submit" value="Send">
+      </form>
+      <button class="close-button">Close</button>
+    </div>
+  `;
+
+  const popupWindow = document.createElement('div');
+  popupWindow.innerHTML = popupHTML;
+  document.body.appendChild(popupWindow);
+
+  // Add event listener to close button
+  const closeButton = popupWindow.querySelector('.close-button');
+  closeButton.addEventListener('click', () => {
+    popupWindow.remove();
+  });
+
+  // Add event listener to form submit
+  const form = popupWindow.querySelector('form').addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = event.target.querySelector('#name').value;
+    const phone = event.target.querySelector('#phone').value;
+    const address = event.target.querySelector('#address').value;
+    const time = event.target.querySelector('#time').value;
+
+    // Send email using EmailJS
+    const serviceId = 'service_wrhj469';
+    const templateId = 'template_ufeoq0r';
+    const userId = 'wapdNFB-3F2V85ECR';
+
+    const templateParams = {
+      name: name,
+      phone: phone,
+      address: address,
+      time: time,
+      day: day // Include the selected day in the email
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, userId)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+
+        // Get the day box element
+        const dayBox = document.querySelector(`.day-${day}`);
+
+        // Add a class to the day box to fill it with red color
+        dayBox.classList.add('booked');
+
+        // Close the popup window
+        popupWindow.remove();
+      }, (err) => {
+        console.log('FAILED...', err);
+      });
+  });
+}
+
+// Select all slideshow images
+const images = document.querySelectorAll('.slideshow-image');
+let currentIndex = 0;
+
+// Function to show the next image
+function showNextImage() {
+  // Remove the 'active' class from the current image
+  images[currentIndex].classList.remove('active');
+
+  // Update the index to the next image
+  currentIndex = (currentIndex + 1) % images.length;
+
+  // Add the 'active' class to the new current image
+  images[currentIndex].classList.add('active');
+}
+
+// Set an interval to change the image every 5 seconds
+setInterval(showNextImage, 5000);
+
+// Initialize the first image as active
+if (images.length > 0) {
+  images[currentIndex].classList.add('active');
+}
+    }
   </script>
 </body>
 </html>
