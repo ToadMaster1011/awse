@@ -4,10 +4,205 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AngelesCleaning</title>
-  <link rel="stylesheet" href="homepage.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <style>
+    /* Combined CSS */
+    body {
+      font-family: 'Gloria Hallelujah', cursive;
+    }
+
+    header {
+      background-color: #ADD8E6;
+      height: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      top: 5px;
+      left: calc(50% - 400px);
+      transform: translateX(-50%);
+      max-width: 150px;
+      height: auto;
+      z-index: 10;
+    }
+
+    header nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    header nav ul li a:hover {
+      color: #FF6347;
+    }
+
+    .site-title-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .site-title {
+      font-family: 'Gloria Hallelujah', cursive;
+      font-size: 3rem;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      line-height: 4rem;
+      height: 4rem;
+    }
+
+    .broom {
+      position: absolute;
+      left: 600px;
+      top: 10px;
+      width: 4rem;
+      height: 4rem;
+      background-image: url('broom-icon-png-10.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 2;
+      animation: sweep 20s infinite;
+    }
+
+    @keyframes sweep {
+      0% {
+        transform: translateX(0) rotate(0deg);
+      }
+      50% {
+        transform: translateX(620px) rotate(15deg);
+      }
+      100% {
+        transform: translateX(0) rotate(0deg);
+      }
+    }
+
+    #calendar-container {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    #calendar table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #calendar th, #calendar td {
+      border: 1px solid #808080;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #calendar td.booked {
+      background-color: #ffcccc;
+    }
+
+    .popup-window {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      width: 450px;
+      max-width: 90%;
+      max-height: 800px;
+      overflow-y: auto;
+      border-radius: 8px;
+    }
+
+    .popup-window h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .popup-window form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .popup-window form input,
+    .popup-window form select {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .popup-window form input[type="submit"] {
+      background-color: #00b400;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup-window form input[type="submit"]:hover {
+      background-color: #008f00;
+    }
+
+    .popup-window .close-button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .popup-window .close-button:hover {
+      background-color: #d32f2f;
+    }
+
+    @media (max-width: 768px) {
+      header .logo {
+        top: 90px;
+        left: 50px;
+        max-width: 50%;
+      }
+
+      .popup-window {
+        width: 90%;
+        max-height: 300px;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <img src="download.png" alt="Logo image" class="logo">
@@ -21,7 +216,7 @@
         <span class="letter">l</span>
         <span class="letter">e</span>
         <span class="letter">s</span>
-        <span class="letter">&nbsp;</span> <!-- Space between words -->
+        <span class="letter">&nbsp;</span>
         <span class="letter">C</span>
         <span class="letter">l</span>
         <span class="letter">e</span>
@@ -48,16 +243,101 @@
       <img src="IMG_20250319_163127.jpg" alt="Slideshow Image 1" class="slideshow-image">
       <img src="IMG_20250319_163131.jpg" alt="Slideshow Image 2" class="slideshow-image">
       <img src="IMG_20250319_163134.jpg" alt="Slideshow Image 3" class="slideshow-image">
-      <img src="IMG_20250319_163138.jpg" alt="Slideshow Image 4" class="slideshow-image">
-      <img src="IMG_20250319_163142.jpg" alt="Slideshow Image 5" class="slideshow-image">
-      <img src="IMG_20250319_163145.jpg" alt="Slideshow Image 6" class="slideshow-image">
-      <img src="IMG_20250319_163149.jpg" alt="Slideshow Image 7" class="slideshow-image">
-      <img src="IMG_20250319_163151.jpg" alt="Slideshow Image 8" class="slideshow-image">
-      <img src="IMG_20250319_163155.jpg" alt="Slideshow Image 9" class="slideshow-image">
-      <img src="IMG_20250319_163158.jpg" alt="Slideshow Image 10" class="slideshow-image">
     </div>
-  </main>  
-  <script src="homepage.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  </main>
+  <script>
+    // Combined JavaScript
+    const calendar = document.getElementById('calendar');
+    const daysInMonth = 31;
+    const calendarHTML = `
+      <h2>Calendar</h2>
+      <table>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        ${getCalendarRows(daysInMonth)}
+      </table>
+    `;
+    calendar.innerHTML = calendarHTML;
+
+    function getCalendarRows(daysInMonth) {
+      let rows = '';
+      let day = 1;
+      for (let i = 0; i < 5; i++) {
+        rows += '<tr>';
+        for (let j = 0; j < 7; j++) {
+          if (day <= daysInMonth) {
+            rows += `<td data-day="${day}" class="day-${day}">${day}</td>`;
+            day++;
+          } else {
+            rows += '<td></td>';
+          }
+        }
+        rows += '</tr>';
+      }
+      return rows;
+    }
+
+    const tableCells = document.querySelectorAll('#calendar td');
+    tableCells.forEach((cell) => {
+      if (cell.dataset.day) {
+        cell.addEventListener('click', () => {
+          const day = cell.dataset.day;
+          createPopupWindow(day);
+        });
+      }
+    });
+
+    function createPopupWindow(day) {
+      const existingPopup = document.querySelector('.popup-window');
+      if (existingPopup) {
+        existingPopup.remove();
+      }
+
+      const popupHTML = `
+        <div class="popup-window">
+          <h2>Day ${day}</h2>
+          <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone"><br><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address"><br><br>
+            <label for="time">Time:</label>
+            <select id="time" name="time">
+              <option value="9:00 AM">9:00 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+            </select><br><br>
+            <input type="submit" value="Send">
+          </form>
+          <button class="close-button">Close</button>
+        </div>
+      `;
+
+      const popupWindow = document.createElement('div');
+      popupWindow.innerHTML = popupHTML;
+      document.body.appendChild(popupWindow);
+
+      const closeButton = popupWindow.querySelector('.close-button');
+      closeButton.addEventListener('click', () => {
+        popupWindow.remove();
+      });
+
+      popupWindow.querySelector('form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const dayBox = document.querySelector(`.day-${day}`);
+        dayBox.classList.add('booked');
+        popupWindow.remove();
+      });
+    }
+  </script>
 </body>
 </html>
