@@ -177,6 +177,12 @@ header nav ul li a:hover {
   background-color: #ffcccc;
 }
 
+.weekend {
+  background-color: #ffcccc; /* Light red background */
+  pointer-events: none; /* Make the cell not clickable */
+}
+    
+    
 #legend {
   display: flex;
   justify-content: center;
@@ -465,7 +471,9 @@ function getCalendarRows(daysInMonth) {
     rows += '<tr>';
     for (let j = 0; j < 7; j++) {
       if (day <= daysInMonth) {
-        rows += `<td data-day="${day}" class="day-${day}">${day}</td>`;
+        const isWeekend = (j === 0 || j === 6); // Sunday (0) or Saturday (6)
+        const weekendClass = isWeekend ? 'weekend' : '';
+        rows += `<td data-day="${day}" class="day-${day} ${weekendClass}">${day}</td>`;
         day++;
       } else {
         rows += '<td></td>';
@@ -475,7 +483,6 @@ function getCalendarRows(daysInMonth) {
   }
   return rows;
 }
-
 // Add event listener to each table cell
 const tableCells = document.querySelectorAll('#calendar td');
 tableCells.forEach((cell) => {
