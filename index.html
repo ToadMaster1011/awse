@@ -547,7 +547,8 @@ function createPopupWindow(day) {
   });
 
   // Add event listener to form submit
-  const form = popupWindow.querySelector('form').addEventListener('submit', (event) => {
+const form = popupWindow.querySelector('form');
+form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const name = event.target.querySelector('#name').value;
@@ -555,37 +556,37 @@ function createPopupWindow(day) {
     const address = event.target.querySelector('#address').value;
     const time = event.target.querySelector('#time').value;
 
+    console.log('Form submitted with:', { name, phone, address, time, day });
+
     // Send email using EmailJS
     const serviceId = 'service_wrhj469';
     const templateId = 'template_ufeoq0r';
     const userId = 'wapdNFB-3F2V85ECR';
 
     const templateParams = {
-      name: name,
-      phone: phone,
-      address: address,
-      time: time,
-      day: day // Include the selected day in the email
+        name: name,
+        phone: phone,
+        address: address,
+        time: time,
+        day: day // Include the selected day in the email
     };
 
     emailjs.send(serviceId, templateId, templateParams, userId)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
+        .then((response) => {
+            console.log('SUCCESS!', response.status, response.text);
 
-        // Get the day box element
-        const dayBox = document.querySelector(`.day-${day}`);
+            // Get the day box element
+            const dayBox = document.querySelector(`.day-${day}`);
 
-        // Add a class to the day box to fill it with red color
-        dayBox.classList.add('booked');
+            // Add a class to the day box to fill it with red color
+            dayBox.classList.add('booked');
 
-        // Close the popup window
-        popupWindow.remove();
-      }, (err) => {
-        console.log('FAILED...', err);
-      });
-  });
-}
-
+            // Close the popup window
+            popupWindow.remove();
+        }, (err) => {
+            console.error('FAILED...', err);
+        });
+});
 // Select all slideshow images
 const images = document.querySelectorAll('.slideshow-image');
 let currentIndex = 0;
