@@ -471,10 +471,10 @@ function getCalendarRows(year, month, daysInMonth) {
     for (let j = 0; j < 7; j++) {
       if (i === 0 && j < firstDayOfWeek) {
         // Empty cells before the first day of the month
-        rows += '<td></td>';
+        rows += '<td class="empty"></td>';
       } else if (day > daysInMonth) {
         // Empty cells after the last day of the month
-        rows += '<td></td>';
+        rows += '<td class="empty"></td>';
       } else {
         const isWeekend = (j === 0 || j === 6); // Sunday (0) or Saturday (6)
         const weekendClass = isWeekend ? 'weekend' : 'weekday';
@@ -500,6 +500,27 @@ tableCells.forEach((cell) => {
   }
 });
 
+// Function to generate time options dynamically
+function generateTimeOptions() {
+  const timeOptions = [];
+  let hour = 6; // Start at 6:00 AM
+  let minute = 0;
+
+  while (hour < 14 || (hour === 14 && minute === 0)) { // End at 2:00 PM
+    const ampm = hour < 12 ? 'AM' : 'PM';
+    const displayHour = hour % 12 === 0 ? 12 : hour % 12; // Convert to 12-hour format
+    const displayMinute = minute === 0 ? '00' : '30';
+    timeOptions.push(`${displayHour}:${displayMinute} ${ampm}`);
+    minute += 30;
+    if (minute === 60) {
+      minute = 0;
+      hour++;
+    }
+  }
+
+  return timeOptions;
+}
+
 // Function to create popup window
 function createPopupWindow(day) {
   // Check if a popup window already exists
@@ -507,6 +528,10 @@ function createPopupWindow(day) {
   if (existingPopup) {
     existingPopup.remove();
   }
+
+  // Generate time options dynamically
+  const timeOptions = generateTimeOptions();
+  const timeOptionsHTML = timeOptions.map(option => `<option value="${option}">${option}</option>`).join('');
 
   const popupHTML = `
     <div class="popup-window">
@@ -520,15 +545,7 @@ function createPopupWindow(day) {
         <input type="text" id="address" name="address"><br><br>
         <label for="time">Time:</label>
         <select id="time" name="time">
-          <option value="9:00 AM">9:00 AM</option>
-          <option value="10:00 AM">10:00 AM</option>
-          <option value="11:00 AM">11:00 AM</option>
-          <option value="12:00 PM">12:00 PM</option>
-          <option value="1:00 PM">1:00 PM</option>
-          <option value="2:00 PM">2:00 PM</option>
-          <option value="3:00 PM">3:00 PM</option>
-          <option value="4:00 PM">4:00 PM</option>
-          <option value="5:00 PM">5:00 PM</option>
+          ${timeOptionsHTML}
         </select><br><br>
         <input type="submit" value="Send">
       </form>
@@ -555,35 +572,13 @@ function createPopupWindow(day) {
     const address = event.target.querySelector('#address').value;
     const time = event.target.querySelector('#time').value;
 
-    // Send email using EmailJS
-    const serviceId = 'service_wrhj469';
-    const templateId = 'template_ufeoq0r';
-    const userId = 'wapdNFB-3F2V85ECR';
-
-    const templateParams = {
-      name: name,
-      phone: phone,
-      address: address,
-      time: time,
-      day: day,
-      month: monthNames[currentMonth], // Current month
-      year: currentYear // Current year
-    };
-    emailjs.send(serviceId, templateId, templateParams, userId)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-
-        // Get the day box element
-        const dayBox = document.querySelector(`.day-${day}`);
-
-        // Add a class to the day box to fill it with red color
-        dayBox.classList.add('booked');
-
-        // Close the popup window
-        popupWindow.remove();
-      }, (err) => {
-        console.log('FAILED...', err);
-      });
+    console.log(`Booking Details:
+      Name: ${name}
+      Phone: ${phone}
+      Address: ${address}
+      Time: ${time}
+      Day: ${day} - ${monthNames[currentMonth]} ${currentYear}`);
+    popupWindow.remove();
   });
 }
 
