@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
   <link rel="icon" href="download.png" type="image/png"> 
   <style>
-  /* General styles */
+/* General styles */
 body {
   font-family: 'Gloria Hallelujah', cursive;
   color: #000; /* Default text color */
@@ -36,11 +36,6 @@ header {
   z-index: 10; /* Ensure the logo appears above other elements */
 }
 
-header nav {
-  width: 100%;
-  text-align: center;
-}
-
 header nav ul {
   list-style: none;
   margin: 0;
@@ -48,10 +43,6 @@ header nav ul {
   display: flex;
   justify-content: center; /* Center align the navigation links */
   gap: 20px; /* Add spacing between links */
-}
-
-header nav ul li {
-  display: inline;
 }
 
 header nav ul li a {
@@ -66,59 +57,24 @@ header nav ul li a:hover {
   color: #32CD32; /* Light green on hover */
 }
 
-.site-title-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px; /* Add spacing between the title and the nav */
-}
-
+/* Site title */
 .site-title {
   font-family: 'Gloria Hallelujah', cursive;
-  font-size: 3rem; /* Make the text bigger */
+  font-size: 3rem; /* Default size for desktop */
+  font-weight: normal; /* Default weight for desktop */
   position: relative;
-  z-index: 1; /* Ensure the text is below the broom */
+  z-index: 1;
   display: inline-block;
-  line-height: 4rem; /* Increase the line height */
-  height: 4rem; /* Set a fixed height */
-  color: #FF69B4; /* Pink text color */
-}
-
-.letter {
-  display: inline-block;
-  animation: fadeLetter 16s infinite; /* Sync with the broom animation */
-}
-
-.letter:nth-child(1) { animation-delay: 0s; }
-.letter:nth-child(2) { animation-delay: 0.2s; }
-.letter:nth-child(3) { animation-delay: 0.4s; }
-.letter:nth-child(4) { animation-delay: 0.6s; }
-.letter:nth-child(5) { animation-delay: 0.8s; }
-.letter:nth-child(6) { animation-delay: 1s; }
-.letter:nth-child(7) { animation-delay: 1.2s; }
-.letter:nth-child(8) { animation-delay: 1.4s; }
-.letter:nth-child(9) { animation-delay: 1.6s; }
-.letter:nth-child(10) { animation-delay: 1.8s; }
-.letter:nth-child(11) { animation-delay: 2s; }
-.letter:nth-child(12) { animation-delay: 2.2s; }
-.letter:nth-child(13) { animation-delay: 2.4s; }
-.letter:nth-child(14) { animation-delay: 2.6s; }
-.letter:nth-child(15) { animation-delay: 2.8s; }
-.letter:nth-child(16) { animation-delay: 3s; }
-
-@keyframes fadeLetter {
-  0%, 100% {
-    opacity: 1; /* Fully visible */
-  }
-  50% {
-    opacity: 0; /* Fully invisible as the broom passes */
-  }
+  line-height: 4rem;
+  height: 4rem;
+  animation: fadeLetter 16s infinite; /* Default animation for larger screens */
+  color: black; /* Default color for desktop */
 }
 
 .broom {
   position: absolute;
   top: 10px; /* Align the broom with the top of the text */
-  margin-left: -670px; /* Add spacing between the broom and the text */
+  margin-left: -10px; /* Add spacing between the broom and the text */
   width: 4rem; /* Match the height of the text */
   height: 4rem; /* Match the height of the text */
   background-image: url('broom-icon-png-10.jpg'); /* Replace with the path to your broom image */
@@ -140,16 +96,22 @@ header nav ul li a:hover {
   }
 }
 
+/* Fade animation for desktop */
+@keyframes fadeLetter {
+  0%, 100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Fully invisible */
+  }
+}
+
 /* Calendar styles */
 #calendar-container {
   margin: 20px auto;
   width: 80%;
   max-width: 800px;
   text-align: center;
-}
-
-#calendar {
-  margin: 10px 0;
 }
 
 #calendar table {
@@ -173,42 +135,41 @@ header nav ul li a:hover {
   cursor: pointer;
 }
 
-#calendar td.booked {
-  background-color: #ffcccc;
-}
-
 .weekend {
-  background-color: #ffcccc; /* Light red background */
+  background-color: #ff4d4d; /* Rose red background for weekends */
   pointer-events: none; /* Make the cell not clickable */
 }
 
-#legend {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+.weekday {
+  background-color: #90ee90; /* Lighter green background for weekdays */
 }
 
-.legend-item {
-  display: flex;
-  align-items: center;
-  margin: 0 10px;
+/* Slideshow container */
+#slideshow-container {
+  width: 100%;
+  height: 400px; /* Adjust height for desktop */
+  overflow: hidden;
+  position: relative;
 }
 
-.legend-item .circle {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin-right: 5px;
+/* Slideshow images */
+.slideshow-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure images cover the container */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* Hide all images by default */
+  transition: opacity 1s ease-in-out; /* Smooth fade transition */
 }
 
-.legend-item .available {
-  background-color: #00b400;
+.slideshow-image.active {
+  opacity: 1; /* Show the active image */
+  z-index: 1; /* Ensure the active image is on top */
 }
 
-.legend-item .unavailable {
-  background-color: #c50000;
-}
-
+/* Popup window styles */
 .popup-window {
   position: fixed;
   top: 50%;
@@ -216,7 +177,7 @@ header nav ul li a:hover {
   transform: translate(-50%, -50%);
   background-color: white;
   border: 1px solid #ddd;
-  padding: 15px; /* Reduce padding */
+  padding: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   width: 450px;
@@ -230,29 +191,23 @@ header nav ul li a:hover {
   margin-top: 0;
   font-size: 1.5rem;
   text-align: center;
-  margin-bottom: 10px; /* Reduce spacing below the title */
+  margin-bottom: 10px;
   color: #32CD32; /* Light green text color */
 }
 
 .popup-window form {
   display: flex;
   flex-direction: column; /* Stack form elements vertically */
-  gap: 0px; /* Reduce spacing between form elements */
-}
-
-.popup-window form label {
-  font-weight: bold;
-  margin-bottom: 5px; /* Reduce spacing below labels */
-  color: #800080; /* Purple text color */
+  gap: 10px; /* Add spacing between form elements */
 }
 
 .popup-window form input,
 .popup-window form select {
   width: 100%; /* Make inputs and selects take full width */
-  padding: 1px; /* Reduce padding inside inputs */
+  padding: 8px; /* Adjust padding inside inputs */
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 15px; /* Add rounded corners */
+  border-radius: 5px; /* Add rounded corners */
   box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
@@ -278,88 +233,72 @@ header nav ul li a:hover {
   font-size: 1rem;
   border-radius: 5px;
   margin-top: 10px;
-  width: 100%; 
-  align-self: flex-end; /* Align the button to the right */
+  width: 100%;
 }
 
 .popup-window .close-button:hover {
   background-color: #d32f2f; /* Darker red on hover */
 }
 
-/* Slideshow container */
-#slideshow-container {
-  width: 100%;
-  height: 800px;
-  overflow: hidden;
-  position: relative;
-}
-
-/* Slideshow images */
-.slideshow-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Ensure the image fits within the container without being stretched */
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0; /* Hide all images by default */
-  transition: opacity 1s ease-in-out; /* Smooth fade transition */
-}
-
-.slideshow-image.active {
-  opacity: 1; /* Show the active image */
-  z-index: 1; /* Ensure the active image is on top */
-}
-
 /* Mobile styles */
 @media (max-width: 768px) {
   header {
+    position: relative; /* Ensure the header is the positioning context */
     height: auto; /* Adjust header height for mobile */
     flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align elements to the left */
+    align-items: center; /* Center align elements in the header */
   }
 
-  header .logo {
-    display: block; /* Ensure the logo is visible */
-    position: relative; /* Use relative positioning */
-    top: 0; /* Reset top positioning */
-    left: 0; /* Move the logo to the left */
-    transform: none; /* Remove centering transform */
-    max-width: 50px; /* Adjust the size of the logo for mobile */
-    margin-right: 10px; /* Add spacing between the logo and the links */
+  .logo {
+    position: absolute; /* Make the logo float */
+    top: calc(50% - 222px); /* Move the logo up by 50px */
+    left: calc(50% - 150px); /* Move the logo left by 30px */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    max-width: 50%; /* Adjust the size of the logo for mobile */
+    z-index: 10; /* Ensure the logo appears on top of other elements */
   }
 
-  .site-title-container {
-    display: none; /* Hide the site title */
+  .site-title {
+    font-size: 1.7rem; /* Increase font size for mobile */
+    font-weight: bold; /* Make the text bold */
+    animation: rainbow 7.5s infinite; /* Apply rainbow animation for mobile */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
-  nav {
-    margin-top: 0px; /* Add space below the logo for the navigation */
-    width: 100%; /* Ensure nav takes full width */
-    display: flex;
-    align-items: center; /* Align items in the center */
+  @keyframes rainbow {
+    0% { color: red; }
+    16% { color: orange; }
+    33% { color: yellow; }
+    50% { color: green; }
+    66% { color: blue; }
+    83% { color: indigo; }
+    100% { color: violet; }
+  }
+
+  .broom {
+    display: none; /* Hide the broom animation on mobile */
   }
 
   nav ul {
-    text-align: center; /* Center align text for mobile */
-    display: flex;
-    flex-direction: column; /* Stack links vertically */
-    align-items: center; /* Center align links */
+    flex-direction: column; /* Stack navigation links vertically */
+    align-items: center; /* Center align navigation links */
+    margin-top: 80px; /* Add spacing below the floating logo */
   }
 
-  nav ul li {
-    display: block;
-    margin: 0px 0;
+  #slideshow-container {
+    height: 300px; /* Reduce height for mobile */
+  }
+
+  .slideshow-image {
+    object-fit: contain; /* Adjust image scaling for smaller screens */
   }
 
   #calendar-container {
     width: 100%;
     margin: 10px 0;
     overflow-x: auto; /* Allow horizontal scrolling if needed */
-  }
-
-  #calendar table {
-    width: 100%; /* Ensure table fits the container */
   }
 
   #calendar td {
@@ -372,29 +311,7 @@ header nav ul li a:hover {
     padding: 10px; /* Reduce padding */
     font-size: 0.9rem; /* Slightly reduce font size for mobile */
   }
-
-  .popup-window h2 {
-    font-size: 1.2rem; /* Reduce the title font size */
-    margin-bottom: 10px; /* Adjust spacing below the title */
-  }
-
-  .popup-window form {
-    gap: 8px; /* Reduce spacing between form elements */
-  }
-
-  .popup-window form input,
-  .popup-window form select {
-    padding: 6px; /* Reduce padding inside inputs */
-    font-size: 0.9rem; /* Adjust font size for inputs */
-  }
-
-  .popup-window form input[type="submit"],
-  .popup-window .close-button {
-    padding: 8px; /* Reduce button padding */
-    font-size: 0.9rem; /* Adjust button font size */
-  }
 }
-
   </style>
 </head>
 <body>
@@ -469,183 +386,193 @@ header nav ul li a:hover {
   <script>
     const calendar = document.getElementById('calendar');
 
-    const daysInMonth = 31;
-    const calendarHTML = `
-      <h2>Calendar</h2>
-      <div id="legend">
-        <div class="legend-item">
-          <div class="circle available"></div>
-          <span>Available</span>
-        </div>
-        <div class="legend-item">
-          <div class="circle unavailable"></div>
-          <span>Unavailable</span>
-        </div>
-      </div>
-      <table>
-        <tr>
-          <th>Sun</th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thu</th>
-          <th>Fri</th>
-          <th>Sat</th>
-        </tr>
-        ${getCalendarRows(daysInMonth)}
-      </table>
-    `;
+// Get the current year and month
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const currentMonth = currentDate.getMonth(); // 0-based index (0 = January, 11 = December)
 
-    calendar.innerHTML = calendarHTML;
+// Get the number of days in the current month
+const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-    function getCalendarRows(daysInMonth) {
-      let rows = '';
-      let day = 1;
-      for (let i = 0; i < 5; i++) {
-        rows += '<tr>';
-        for (let j = 0; j < 7; j++) {
-          if (day <= daysInMonth) {
-            const isWeekend = (j === 0 || j === 6); // Sunday (0) or Saturday (6)
-            const weekendClass = isWeekend ? 'weekend' : '';
-            rows += `<td data-day="${day}" class="day-${day} ${weekendClass}">${day}</td>`;
-            day++;
-          } else {
-            rows += '<td></td>';
-          }
-        }
-        rows += '</tr>';
+// Array of month names for display
+const monthNames = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+
+// Generate the calendar HTML
+const calendarHTML = `
+  <h2>${monthNames[currentMonth]} ${currentYear}</h2>
+  <div id="legend">
+    <div class="legend-item">
+      <div class="circle available"></div>
+      <span>Available</span>
+    </div>
+    <div class="legend-item">
+      <div class="circle unavailable"></div>
+      <span>Unavailable</span>
+    </div>
+  </div>
+  <table>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+    ${getCalendarRows(currentYear, currentMonth, daysInMonth)}
+  </table>
+`;
+
+calendar.innerHTML = calendarHTML;
+
+// Function to generate calendar rows
+function getCalendarRows(year, month, daysInMonth) {
+  let rows = '';
+  let day = 1;
+
+  // Get the day of the week for the first day of the month
+  const firstDayOfWeek = new Date(year, month, 1).getDay();
+
+  for (let i = 0; i < 6; i++) { // Maximum 6 rows in a calendar
+    rows += '<tr>';
+    for (let j = 0; j < 7; j++) {
+      if (i === 0 && j < firstDayOfWeek) {
+        // Empty cells before the first day of the month
+        rows += '<td></td>';
+      } else if (day > daysInMonth) {
+        // Empty cells after the last day of the month
+        rows += '<td></td>';
+      } else {
+        const isWeekend = (j === 0 || j === 6); // Sunday (0) or Saturday (6)
+        const weekendClass = isWeekend ? 'weekend' : 'weekday';
+        const backgroundColor = isWeekend ? 'background-color: #ff4d4d;' : 'background-color: #90ee90;';
+        rows += `<td data-day="${day}" class="day-${day} ${weekendClass}" style="${backgroundColor}">${day}</td>`;
+        day++;
       }
-      return rows;
     }
+    rows += '</tr>';
+    if (day > daysInMonth) break; // Stop if all days are added
+  }
+  return rows;
+}
 
-    // Add event listener to each table cell
-    const tableCells = document.querySelectorAll('#calendar td');
-    tableCells.forEach((cell) => {
-      if (cell.dataset.day) {
-        cell.addEventListener('click', () => {
-          const day = cell.dataset.day;
-          createPopupWindow(day);
-        });
-      }
+// Add event listener to each table cell
+const tableCells = document.querySelectorAll('#calendar td');
+tableCells.forEach((cell) => {
+  if (cell.dataset.day) {
+    cell.addEventListener('click', () => {
+      const day = cell.dataset.day;
+      createPopupWindow(day);
     });
+  }
+});
 
-    // Function to create popup window
-    function createPopupWindow(day) {
-      // Check if a popup window already exists
-      const existingPopup = document.querySelector('.popup-window');
-      if (existingPopup) {
-        existingPopup.remove();
-      }
+// Function to create popup window
+function createPopupWindow(day) {
+  // Check if a popup window already exists
+  const existingPopup = document.querySelector('.popup-window');
+  if (existingPopup) {
+    existingPopup.remove();
+  }
 
-      const popupHTML = `
-        <div class="popup-window">
-          <h2>Day ${day}</h2>
-          <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" name="phone" required><br><br>
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required><br><br>
-            <label for="time">Time:</label>
-            <select id="time" name="time" required>
-              <option value="6:30 AM">6:30 AM</option>
-              <option value="7:00 AM">7:00 AM</option>
-              <option value="7:30 AM">7:30 AM</option>
-              <option value="8:00 AM">8:00 AM</option>
-              <option value="8:30 AM">8:30 AM</option>
-              <option value="9:00 AM">9:00 AM</option>
-              <option value="9:30 AM">9:30 AM</option>
-              <option value="10:00 AM">10:00 AM</option>
-              <option value="10:30 AM">10:30 AM</option>
-              <option value="11:00 AM">11:00 AM</option>
-              <option value="11:30 AM">11:30 AM</option>
-              <option value="12:00 PM">12:00 PM</option>
-              <option value="12:30 PM">12:30 PM</option>
-              <option value="1:00 PM">1:00 PM</option>
-            </select><br><br>
-            <input type="submit" value="Send">
-          </form>
-          <button class="close-button">Close</button>
-        </div>
-      `;
+  const popupHTML = `
+    <div class="popup-window">
+      <h2>Day ${day} - ${monthNames[currentMonth]} ${currentYear}</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone"><br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"><br><br>
+        <label for="time">Time:</label>
+        <select id="time" name="time">
+          <option value="9:00 AM">9:00 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="1:00 PM">1:00 PM</option>
+          <option value="2:00 PM">2:00 PM</option>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+        </select><br><br>
+        <input type="submit" value="Send">
+      </form>
+      <button class="close-button">Close</button>
+    </div>
+  `;
 
-      const popupWindow = document.createElement('div');
-      popupWindow.innerHTML = popupHTML;
-      document.body.appendChild(popupWindow);
+  const popupWindow = document.createElement('div');
+  popupWindow.innerHTML = popupHTML;
+  document.body.appendChild(popupWindow);
 
-      // Add event listener to close button
-      const closeButton = popupWindow.querySelector('.close-button');
-      closeButton.addEventListener('click', () => {
+  // Add event listener to close button
+  const closeButton = popupWindow.querySelector('.close-button');
+  closeButton.addEventListener('click', () => {
+    popupWindow.remove();
+  });
+
+  // Add event listener to form submit
+  const form = popupWindow.querySelector('form').addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = event.target.querySelector('#name').value;
+    const phone = event.target.querySelector('#phone').value;
+    const address = event.target.querySelector('#address').value;
+    const time = event.target.querySelector('#time').value;
+
+    // Send email using EmailJS
+    const serviceId = 'service_wrhj469';
+    const templateId = 'template_ufeoq0r';
+    const userId = 'wapdNFB-3F2V85ECR';
+
+    const templateParams = {
+      name: name,
+      phone: phone,
+      address: address,
+      time: time,
+      day: day,
+      month: monthNames[currentMonth], // Current month
+      year: currentYear // Current year
+    };
+    emailjs.send(serviceId, templateId, templateParams, userId)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+
+        // Get the day box element
+        const dayBox = document.querySelector(`.day-${day}`);
+
+        // Add a class to the day box to fill it with red color
+        dayBox.classList.add('booked');
+
+        // Close the popup window
         popupWindow.remove();
+      }, (err) => {
+        console.log('FAILED...', err);
       });
+  });
+}
 
-      // Add event listener to form submit
-      const form = popupWindow.querySelector('form');
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
+// Slideshow functionality
+const images = document.querySelectorAll('.slideshow-image');
+let currentIndex = 0;
 
-        const name = event.target.querySelector('#name').value;
-        const phone = event.target.querySelector('#phone').value;
-        const address = event.target.querySelector('#address').value;
-        const time = event.target.querySelector('#time').value;
+function showNextImage() {
+  images[currentIndex].classList.remove('active');
+  currentIndex = (currentIndex + 1) % images.length;
+  images[currentIndex].classList.add('active');
+}
 
-        console.log('Form submitted with:', { name, phone, address, time, day });
+setInterval(showNextImage, 5000);
 
-        // Send email using EmailJS
-        const serviceId = 'service_wrhj469';
-        const templateId = 'template_ufeoq0r';
-        const userId = 'wapdNFB-3F2V85ECR';
-
-        const templateParams = {
-          name: name,
-          phone: phone,
-          address: address,
-          time: time,
-          day: day // Include the selected day in the email
-        };
-
-        emailjs.send(serviceId, templateId, templateParams, userId)
-          .then((response) => {
-            console.log('SUCCESS!', response.status, response.text);
-
-            // Get the day box element
-            const dayBox = document.querySelector(`.day-${day}`);
-
-            // Add a class to the day box to fill it with red color
-            dayBox.classList.add('booked');
-
-            // Close the popup window
-            popupWindow.remove();
-          }, (err) => {
-            console.error('FAILED...', err);
-          });
-      });
-    }
-
-    // Select all slideshow images
-    const images = document.querySelectorAll('.slideshow-image');
-    let currentIndex = 0;
-
-    // Function to show the next image
-    function showNextImage() {
-      // Remove the 'active' class from the current image
-      images[currentIndex].classList.remove('active');
-
-      // Update the index to the next image
-      currentIndex = (currentIndex + 1) % images.length;
-
-      // Add the 'active' class to the new current image
-      images[currentIndex].classList.add('active');
-    }
-
-    // Set an interval to change the image every 5 seconds
-    setInterval(showNextImage, 5000);
-
-    // Initialize the first image as active
-    if (images.length > 0) {
-      images[currentIndex].classList.add('active');
-    }
+if (images.length > 0) {
+  images[currentIndex].classList.add('active');
+}
   </script>
 </body>
 </html>
