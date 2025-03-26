@@ -8,272 +8,290 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
   <style>
-    /* Combined CSS */
-    /* General styles */
-    header {
-      background-color: #ADD8E6; /* Light blue background */
-      height: auto;
-      padding: 20px;
-      display: flex;
-      flex-direction: column; /* Stack elements vertically */
-      align-items: center; /* Center align elements horizontally */
-      justify-content: center; /* Center align elements vertically */
-      position: relative;
-    }
+  /* General styles */
+body {
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #000; /* Default text color */
+}
 
-    body {
-      font-family: 'Gloria Hallelujah', cursive;
-    }
+header {
+  background-color: #ADD8E6; /* Light blue background */
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align elements horizontally */
+  justify-content: center; /* Center align elements vertically */
+  position: relative;
+}
 
-    /* Position and style the logo */
-    .logo {
-      position: absolute; /* Position the logo independently of the header */
-      top: 5px; /* Adjust the vertical position */
-      left: calc(50% - 400px); /* Move the logo 200px to the left */
-      transform: translateX(-50%); /* Center the logo horizontally */
-      max-width: 150px; /* Increase the size of the logo */
-      height: auto; /* Maintain aspect ratio */
-      z-index: 10; /* Ensure the logo appears above other elements */
-    }
+.logo {
+  position: absolute; /* Position the logo independently of the header */
+  top: 5px; /* Adjust the vertical position */
+  left: calc(50% - 400px); /* Move the logo 200px to the left */
+  transform: translateX(-50%); /* Center the logo horizontally */
+  max-width: 150px; /* Increase the size of the logo */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 10; /* Ensure the logo appears above other elements */
+}
 
-    header nav {
-      width: 100%;
-      text-align: center;
-    }
+header nav {
+  width: 100%;
+  text-align: center;
+}
 
-    header nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center; /* Center align the navigation links */
-      gap: 20px; /* Add spacing between links */
-    }
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center align the navigation links */
+  gap: 20px; /* Add spacing between links */
+}
 
-    header nav ul li {
-      display: inline;
-    }
+header nav ul li {
+  display: inline;
+}
 
-    header nav ul li a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      font-size: 1.2rem;
-      transition: color 0.3s ease;
-    }
+header nav ul li a {
+  text-decoration: none;
+  color: #FF69B4; /* Pink text color */
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
 
-    header nav ul li a:hover {
-      color: #FF6347; /* Change color on hover */
-    }
+header nav ul li a:hover {
+  color: #32CD32; /* Light green on hover */
+}
 
-    /* Site title container */
-    .site-title-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 10px; /* Add spacing between the title and the nav */
-    }
+.site-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px; /* Add spacing between the title and the nav */
+}
 
-    .site-title {
-      font-family: 'Gloria Hallelujah', cursive;
-      font-size: 3rem; /* Make the text bigger */
-      position: relative;
-      z-index: 1; /* Ensure the text is below the broom */
-      display: inline-block;
-      line-height: 4rem; /* Increase the line height */
-      height: 4rem; /* Set a fixed height */
-    }
+.site-title {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 3rem; /* Make the text bigger */
+  position: relative;
+  z-index: 1; /* Ensure the text is below the broom */
+  display: inline-block;
+  line-height: 4rem; /* Increase the line height */
+  height: 4rem; /* Set a fixed height */
+  color: #FF69B4; /* Pink text color */
+}
 
-    .letter {
-      display: inline-block;
-      animation: fadeLetter 10s infinite; /* Sync with the broom animation */
-    }
+.letter {
+  display: inline-block;
+  animation: fadeLetter 16s infinite; /* Sync with the broom animation */
+}
 
-    @keyframes fadeLetter {
-      0%, 100% {
-        opacity: 1; /* Fully visible */
-      }
-      50% {
-        opacity: 0; /* Fully invisible as the broom passes */
-      }
-    }
+.letter:nth-child(1) { animation-delay: 0s; }
+.letter:nth-child(2) { animation-delay: 0.2s; }
+.letter:nth-child(3) { animation-delay: 0.4s; }
+.letter:nth-child(4) { animation-delay: 0.6s; }
+.letter:nth-child(5) { animation-delay: 0.8s; }
+.letter:nth-child(6) { animation-delay: 1s; }
+.letter:nth-child(7) { animation-delay: 1.2s; }
+.letter:nth-child(8) { animation-delay: 1.4s; }
+.letter:nth-child(9) { animation-delay: 1.6s; }
+.letter:nth-child(10) { animation-delay: 1.8s; }
+.letter:nth-child(11) { animation-delay: 2s; }
+.letter:nth-child(12) { animation-delay: 2.2s; }
+.letter:nth-child(13) { animation-delay: 2.4s; }
+.letter:nth-child(14) { animation-delay: 2.6s; }
+.letter:nth-child(15) { animation-delay: 2.8s; }
+.letter:nth-child(16) { animation-delay: 3s; }
 
-    .broom {
-      position: absolute;
-      left: 600px;
-      top: 10px; /* Align the broom with the top of the text */
-      width: 4rem; /* Match the height of the text */
-      height: 4rem; /* Match the height of the text */
-      background-image: url('broom-icon-png-10.jpg'); /* Replace with the path to your broom image */
-      background-size: contain;
-      background-repeat: no-repeat;
-      z-index: 2; /* Ensure the broom is above the text */
-      animation: sweep 20s infinite; /* Slow down the animation */
-    }
+@keyframes fadeLetter {
+  0%, 100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Fully invisible as the broom passes */
+  }
+}
 
-    @keyframes sweep {
-      0% {
-        transform: translateX(0) rotate(0deg);
-      }
-      50% {
-        transform: translateX(620px) rotate(15deg); /* Adjust distance and angle */
-      }
-      100% {
-        transform: translateX(0) rotate(0deg);
-      }
-    }
+.broom {
+  position: absolute;
+  top: 10px; /* Align the broom with the top of the text */
+  margin-left: -670px; /* Add spacing between the broom and the text */
+  width: 4rem; /* Match the height of the text */
+  height: 4rem; /* Match the height of the text */
+  background-image: url('broom-icon-png-10.jpg'); /* Replace with the path to your broom image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2; /* Ensure the broom is above the text */
+  animation: sweep 10s infinite; /* Slow down the animation */
+}
 
-    /* Calendar styles */
-    #calendar-container {
-      margin: 20px auto;
-      width: 80%;
-      max-width: 800px;
-      text-align: center;
-    }
+@keyframes sweep {
+  0% {
+    transform: translateX(0) rotate(-70deg);
+  }
+  50% {
+    transform: translateX(calc(700px - 4rem)) rotate(40deg); /* Adjust distance and angle */
+  }
+  100% {
+    transform: translateX(0) rotate(-80deg);
+  }
+}
 
-    #calendar {
-      margin: 10px 0;
-    }
+/* Calendar styles */
+#calendar-container {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+}
 
-    #calendar table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+#calendar {
+  margin: 10px 0;
+}
 
-    #calendar th, #calendar td {
-      border: 1px solid #808080;
-      padding: 10px;
-      text-align: center;
-    }
+#calendar table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-    #calendar th {
-      background-color: #ece8e8;
-    }
+#calendar th, #calendar td {
+  border: 1px solid #808080;
+  padding: 10px;
+  text-align: center;
+}
 
-    #calendar td {
-      height: 100px;
-      vertical-align: middle;
-      cursor: pointer;
-    }
+#calendar th {
+  background-color: #ece8e8;
+}
 
-    #calendar td.booked {
-      background-color: #ffcccc;
-    }
+#calendar td {
+  height: 100px;
+  vertical-align: middle;
+  cursor: pointer;
+}
 
-    .weekend {
-      background-color: #ffcccc; /* Light red background */
-      pointer-events: none; /* Make the cell not clickable */
-    }
+#calendar td.booked {
+  background-color: #ffcccc;
+}
 
-    #legend {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
+.weekend {
+  background-color: #ffcccc; /* Light red background */
+  pointer-events: none; /* Make the cell not clickable */
+}
 
-    .legend-item {
-      display: flex;
-      align-items: center;
-      margin: 0 10px;
-    }
+#legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-    .legend-item .circle {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      margin-right: 5px;
-    }
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
 
-    .legend-item .available {
-      background-color: #00b400;
-    }
+.legend-item .circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
 
-    .legend-item .unavailable {
-      background-color: #c50000;
-    }
+.legend-item .available {
+  background-color: #00b400;
+}
 
-    .popup-window {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      border: 1px solid #ddd;
-      padding: 15px; /* Reduce padding */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      width: 450px;
-      max-width: 90%; /* Ensure it fits smaller screens */
-      max-height: 650px; /* Limit the height */
-      overflow-y: auto; /* Add scrolling if content overflows */
-      border-radius: 8px; /* Add rounded corners */
-    }
+.legend-item .unavailable {
+  background-color: #c50000;
+}
 
-    .popup-window h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      text-align: center;
-      margin-bottom: 10px; /* Reduce spacing below the title */
-    }
+.popup-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 15px; /* Reduce padding */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 450px;
+  max-width: 90%; /* Ensure it fits smaller screens */
+  max-height: 800px; /* Limit the height */
+  overflow-y: auto; /* Add scrolling if content overflows */
+  border-radius: 8px; /* Add rounded corners */
+}
 
-    .popup-window form {
-      display: flex;
-      flex-direction: column; /* Stack form elements vertically */
-      gap: 0px; /* Reduce spacing between form elements */
-    }
+.popup-window h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 10px; /* Reduce spacing below the title */
+  color: #32CD32; /* Light green text color */
+}
 
-    .popup-window form label {
-      font-weight: bold;
-      margin-bottom: 5px; /* Reduce spacing below labels */
-    }
+.popup-window form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  gap: 0px; /* Reduce spacing between form elements */
+}
 
-    .popup-window form input,
-    .popup-window form select {
-      width: 100%; /* Make inputs and selects take full width */
-      padding: 1px; /* Reduce padding inside inputs */
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px; /* Add rounded corners */
-      box-sizing: border-box; /* Ensure padding doesn't affect width */
-    }
+.popup-window form label {
+  font-weight: bold;
+  margin-bottom: 5px; /* Reduce spacing below labels */
+  color: #FF69B4; /* Pink text color */
+}
 
-    .popup-window form input[type="submit"] {
-      background-color: #00b400;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
+.popup-window form input,
+.popup-window form select {
+  width: 100%; /* Make inputs and selects take full width */
+  padding: 1px; /* Reduce padding inside inputs */
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 15px; /* Add rounded corners */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
 
-    .popup-window form input[type="submit"]:hover {
-      background-color: #008f00; /* Darker green on hover */
-    }
+.popup-window form input[type="submit"] {
+  background-color: #00b400;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 
-    .popup-window .close-button {
-      background-color: #f44336;
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 5px;
-      margin-top: 10px;
-      width: 100%; 
-      align-self: flex-end; /* Align the button to the right */
-    }
+.popup-window form input[type="submit"]:hover {
+  background-color: #008f00; /* Darker green on hover */
+}
 
-    .popup-window .close-button:hover {
-      background-color: #d32f2f; /* Darker red on hover */
-    }
+.popup-window .close-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 100%; 
+  align-self: flex-end; /* Align the button to the right */
+}
 
-    /* Slideshow container */
-    #slideshow-container {
-      width: 100%;
-      height: 800px;
-      overflow: hidden;
-      position: relative;
-    }
+.popup-window .close-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Slideshow container */
+#slideshow-container {
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+}
 
 /* Slideshow images */
 .slideshow-image {
@@ -292,87 +310,90 @@
   z-index: 1; /* Ensure the active image is on top */
 }
 
+/* Mobile styles */
+@media (max-width: 768px) {
+  header {
+    height: auto; /* Adjust header height for mobile */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align elements to the left */
+  }
 
-    /* Mobile styles */
-    @media (max-width: 768px) {
-      header {
-        height: auto; /* Adjust header height for mobile */
-        flex-direction: column; /* Stack elements vertically */
-        align-items: flex-start; /* Align elements to the left */
-      }
+  header .logo {
+    display: block; /* Ensure the logo is visible */
+    position: relative; /* Use relative positioning */
+    top: 0; /* Reset top positioning */
+    left: 0; /* Move the logo to the left */
+    transform: none; /* Remove centering transform */
+    max-width: 50px; /* Adjust the size of the logo for mobile */
+    margin-right: 10px; /* Add spacing between the logo and the links */
+  }
 
-      header .logo {
-        display: block; /* Ensure the logo is visible */
-        position: relative; /* Use relative positioning */
-        top: 90px; /* Reset top positioning */
-        left: 50px; /* Move the logo to the left */
-        transform: none; /* Remove centering transform */
-        max-width: 50%; /* Adjust the size of the logo for mobile */
-      }
+  .site-title-container {
+    display: none; /* Hide the site title */
+  }
 
-      .site-title-container {
-        display: none; /* Hide the site title */
-      }
+  nav {
+    margin-top: 0px; /* Add space below the logo for the navigation */
+    width: 100%; /* Ensure nav takes full width */
+    display: flex;
+    align-items: center; /* Align items in the center */
+  }
 
-      nav {
-        margin-top: 0px; /* Add space below the logo for the navigation */
-        width: 100%; /* Ensure nav takes full width */
-      }
+  nav ul {
+    text-align: center; /* Center align text for mobile */
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center align links */
+  }
 
-      nav ul {
-        text-align: center; /* Center align text for mobile */
-        display: flex;
-        flex-direction: column; /* Stack links vertically */
-        align-items: center; /* Center align links */
-      }
+  nav ul li {
+    display: block;
+    margin: 0px 0;
+  }
 
-      nav ul li {
-        display: block;
-        margin: 0px 0;
-      }
+  #calendar-container {
+    width: 100%;
+    margin: 10px 0;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+  }
 
-      #calendar-container {
-        width: 100%;
-        margin: 10px 0;
-        overflow-x: auto; /* Allow horizontal scrolling if needed */
-      }
+  #calendar table {
+    width: 100%; /* Ensure table fits the container */
+  }
 
-      #calendar table {
-        width: 100%; /* Ensure table fits the container */
-      }
+  #calendar td {
+    height: 50px; /* Adjust cell height for mobile */
+  }
 
-      #calendar td {
-        height: 50px; /* Adjust cell height for mobile */
-      }
+  .popup-window {
+    width: 90%; /* Make the popup take up 90% of the screen width */
+    max-height: 300px; /* Reduce the maximum height */
+    padding: 10px; /* Reduce padding */
+    font-size: 0.9rem; /* Slightly reduce font size for mobile */
+  }
 
-      .popup-window {
-        width: 90%; /* Make the popup take up 90% of the screen width */
-        max-height: 650px; /* Reduce the maximum height */
-        padding: 10px; /* Reduce padding */
-        font-size: 0.9rem; /* Slightly reduce font size for mobile */
-      }
+  .popup-window h2 {
+    font-size: 1.2rem; /* Reduce the title font size */
+    margin-bottom: 10px; /* Adjust spacing below the title */
+  }
 
-      .popup-window h2 {
-        font-size: 1.2rem; /* Reduce the title font size */
-        margin-bottom: 10px; /* Adjust spacing below the title */
-      }
+  .popup-window form {
+    gap: 8px; /* Reduce spacing between form elements */
+  }
 
-      .popup-window form {
-        gap: 1px; /* Reduce spacing between form elements */
-      }
+  .popup-window form input,
+  .popup-window form select {
+    padding: 6px; /* Reduce padding inside inputs */
+    font-size: 0.9rem; /* Adjust font size for inputs */
+  }
 
-      .popup-window form input,
-      .popup-window form select {
-        padding: 6px; /* Reduce padding inside inputs */
-        font-size: 0.9rem; /* Adjust font size for inputs */
-      }
+  .popup-window form input[type="submit"],
+  .popup-window .close-button {
+    padding: 8px; /* Reduce button padding */
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+}
 
-      .popup-window form input[type="submit"],
-      .popup-window .close-button {
-        padding: 8px; /* Reduce button padding */
-        font-size: 0.9rem; /* Adjust button font size */
-      }
-    }
   </style>
 </head>
 <body>
