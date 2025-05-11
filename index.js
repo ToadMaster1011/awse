@@ -435,7 +435,7 @@ function initSlideshow() {
   
   // Define slideshow image sources (using placeholder images via Unsplash)
   const imageSources = [
-    'IMG_20250319_163127.jpg',
+    'https://github.com/ToadMaster1011/awse/blob/970748c05f38aa450f9aa0ce8cdb50afa6bd4851/IMG_20250319_163151.jpg',
     'IMG_20250319_163131.jpg',
     'IMG_20250319_163134.jpg',
     'IMG_20250319_163138.jpg',
