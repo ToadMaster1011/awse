@@ -332,6 +332,35 @@ button, .btn {
   box-shadow: var(--shadow-md);
 }
 
+.calendar-header {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+  gap: 10px;              /* Add spacing between elements */
+  padding: 10px;
+  background-color: var(--light-gray);
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.calendar-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendar-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--dark-blue);
+}
+
+.calendar-nav-btn:hover {
+  color: var(--primary-color);
+}
+
 .calendar {
   width: 100%;
 }
