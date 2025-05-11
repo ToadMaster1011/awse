@@ -435,14 +435,14 @@ function initSlideshow() {
   
   // Define slideshow image sources (using placeholder images via Unsplash)
   const imageSources = [
-    'https://source.unsplash.com/random/800x600/?clean+kitchen',
-    'https://source.unsplash.com/random/800x600/?clean+bathroom',
-    'https://source.unsplash.com/random/800x600/?clean+living+room',
-    'https://source.unsplash.com/random/800x600/?clean+house',
-    'https://source.unsplash.com/random/800x600/?cleaning+service',
-    'https://source.unsplash.com/random/800x600/?mop+cleaning',
-    'https://source.unsplash.com/random/800x600/?vacuum+cleaner',
-    'https://source.unsplash.com/random/800x600/?clean+office'
+ 'IMG_20250319_163127.jpg',
+    'IMG_20250319_163131.jpg',
+    'IMG_20250319_163134.jpg',
+    'IMG_20250319_163138.jpg',
+    'IMG_20250319_163142.jpg',
+    'IMG_20250319_163145.jpg',
+    'IMG_20250319_163149.jpg',
+    'IMG_20250319_163151.jpg'
   ];
   
   // Create image elements
