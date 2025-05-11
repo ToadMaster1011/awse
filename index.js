@@ -435,7 +435,7 @@ function initSlideshow() {
   
   // Define slideshow image sources (using placeholder images via Unsplash)
   const imageSources = [
-    'https://github.com/ToadMaster1011/awse/blob/970748c05f38aa450f9aa0ce8cdb50afa6bd4851/IMG_20250319_163151.jpg',
+    'IMG_20250319_163127.jpg',
     'IMG_20250319_163131.jpg',
     'IMG_20250319_163134.jpg',
     'IMG_20250319_163138.jpg',
@@ -443,6 +443,19 @@ function initSlideshow() {
     'IMG_20250319_163145.jpg',
     'IMG_20250319_163149.jpg',
     'IMG_20250319_163151.jpg'
+    'IMG_20250319_163155.jpg'
+    'IMG_20250319_163158.jpg'
+    'IMG_20250319_163202.jpg'
+    'IMG_20250319_163210.jpg' 
+    'IMG_20250319_163213.jpg'
+    'IMG_20250319_163216.jpg'
+    'IMG_20250319_163220.jpg' 
+    'IMG_20250319_163224.jpg'  
+    'IMG_20250319_163226.jpg' 
+    'IMG_20250319_163230.jpg' 
+    'IMG_20250319_163235.jpg' 
+    'IMG_20250319_163238.jpg'
+    'IMG_20250319_163241.jpg'
   ];
   
   // Create image elements
