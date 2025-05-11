@@ -3,629 +3,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AngelesCleaning</title>
+  <title>Angeles Cleaning - Professional Cleaning Services</title>
+  <meta name="description" content="Professional cleaning services for homes and businesses. Book your cleaning appointment today.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
-  <link rel="icon" href="download.png" type="image/png"> 
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="PhSqhlHEcYFrwdk5jeqESA" async></script>
-  <meta name="ahrefs-site-verification" content="bf04bfbf499fcdf1a3bd83a3b53bf03ec24008deac9a2d9e6e5f6a40499e01e4">
-
-  <style>
-/* General styles */
-body {
-  font-family: 'Gloria Hallelujah', cursive;
-  color: #000; /* Default text color */
-}
-
-header {
-  background-color: #ADD8E6; /* Light blue background */
-  height: auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center; /* Center align elements horizontally */
-  justify-content: center; /* Center align elements vertically */
-  position: relative;
-}
-
-.logo {
-  position: absolute; /* Position the logo independently of the header */
-  top: 5px; /* Adjust the vertical position */
-  left: calc(50% - 400px); /* Move the logo 200px to the left */
-  transform: translateX(-50%); /* Center the logo horizontally */
-  max-width: 150px; /* Increase the size of the logo */
-  height: auto; /* Maintain aspect ratio */
-  z-index: 10; /* Ensure the logo appears above other elements */
-}
-
-header nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center; /* Center align the navigation links */
-  gap: 20px; /* Add spacing between links */
-}
-
-header nav ul li a {
-  text-decoration: none;
-  color: #FF69B4; /* Pink text color */
-  font-weight: bold;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-header nav ul li a:hover {
-  color: #32CD32; /* Light green on hover */
-}
-
-/* Site title */
-.site-title {
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 3rem; /* Default size for desktop */
-  font-weight: normal; /* Default weight for desktop */
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  line-height: 4rem;
-  height: 4rem;
-  animation: fadeLetter 16s infinite; /* Default animation for larger screens */
-  color: black; /* Default color for desktop */
-}
-
-.broom {
-  position: absolute;
-  top: 10px; /* Align the broom with the top of the text */
-  margin-left: -10px; /* Add spacing between the broom and the text */
-  width: 4rem; /* Match the height of the text */
-  height: 4rem; /* Match the height of the text */
-  background-image: url('broom-icon-png-10.jpg'); /* Replace with the path to your broom image */
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: 2; /* Ensure the broom is above the text */
-  animation: sweep 10s infinite; /* Slow down the animation */
-}
-
-@keyframes sweep {
-  0% {
-    transform: translateX(0) rotate(-70deg);
-  }
-  50% {
-    transform: translateX(calc(700px - 4rem)) rotate(40deg); /* Adjust distance and angle */
-  }
-  100% {
-    transform: translateX(0) rotate(-80deg);
-  }
-}
-
-/* Fade animation for desktop */
-@keyframes fadeLetter {
-  0%, 100% {
-    opacity: 1; /* Fully visible */
-  }
-  50% {
-    opacity: 0; /* Fully invisible */
-  }
-}
-
-/* Calendar styles */
-#calendar-container {
-  margin: 20px auto;
-  width: 80%;
-  max-width: 800px;
-  text-align: center;
-}
-
-#calendar table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-#calendar th, #calendar td {
-  border: 1px solid #808080;
-  padding: 10px;
-  text-align: center;
-}
-
-#calendar th {
-  background-color: #ece8e8;
-}
-
-#calendar td {
-  height: 100px;
-  vertical-align: middle;
-  cursor: pointer;
-}
-
-.weekend {
-  background-color: #ff4d4d; /* Rose red background for weekends */
-  pointer-events: none; /* Make the cell not clickable */
-}
-
-.weekday {
-  background-color: #90ee90; /* Lighter green background for weekdays */
-}
-
-
-#legend {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  margin: 0 10px;
-}
-
-.legend-item .circle {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin-right: 5px;
-}
-
-.legend-item .available {
-  background-color: #00b400;
-}
-
-.legend-item .unavailable {
-  background-color: #c50000;
-}
-    
-/* Slideshow container */
-#slideshow-container {
-  width: 100%;
-  height: 400px; /* Adjust height for desktop */
-  overflow: hidden;
-  position: relative;
-}
-
-/* Slideshow images */
-.slideshow-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Ensure images fit within the container without stretching */
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0; /* Hide all images by default */
-  transition: opacity 1s ease-in-out; /* Smooth fade transition */
-}
-
-.slideshow-image.active {
-  opacity: 1; /* Show the active image */
-  z-index: 1; /* Ensure the active image is on top */
-}
-
-
-/* Popup window styles */
-.popup-window {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  width: 450px;
-  max-width: 90%; /* Ensure it fits smaller screens */
-  max-height: 800px; /* Limit the height */
-  overflow-y: auto; /* Add scrolling if content overflows */
-  border-radius: 8px; /* Add rounded corners */
-}
-
-.popup-window h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 10px;
-  color: #32CD32; /* Light green text color */
-}
-
-.popup-window form {
-  display: flex;
-  flex-direction: column; /* Stack form elements vertically */
-  gap: 10px; /* Add spacing between form elements */
-}
-
-.popup-window form input,
-.popup-window form select {
-  width: 100%; /* Make inputs and selects take full width */
-  padding: 8px; /* Adjust padding inside inputs */
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px; /* Add rounded corners */
-  box-sizing: border-box; /* Ensure padding doesn't affect width */
-}
-
-.popup-window form input[type="submit"] {
-  background-color: #00b400;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.popup-window form input[type="submit"]:hover {
-  background-color: #008f00; /* Darker green on hover */
-}
-
-.popup-window .close-button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 5px;
-  margin-top: 10px;
-  width: 100%;
-}
-
-.popup-window .close-button:hover {
-  background-color: #d32f2f; /* Darker red on hover */
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-  header {
-    position: relative; /* Ensure the header is the positioning context */
-    height: auto; /* Adjust header height for mobile */
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center align elements in the header */
-  }
-
-  .logo {
-    position: absolute; /* Make the logo float */
-    top: calc(50% - 130px); /* Move the logo up by 50px */
-    left: calc(50% - 145px); /* Move the logo left by 30px */
-    transform: translate(-50%, -50%); /* Adjust for perfect centering */
-    max-width: 50%; /* Adjust the size of the logo for mobile */
-    z-index: 10; /* Ensure the logo appears on top of other elements */
-  }
-
-  .site-title {
-    font-size: 1.4rem; /* Increase font size for mobile */
-    font-weight: bold; /* Make the text bold */
-    animation: rainbow 7.5s infinite; /* Apply rainbow animation for mobile */
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  @keyframes rainbow {
-    0% { color: red; }
-    16% { color: orange; }
-    33% { color: yellow; }
-    50% { color: green; }
-    66% { color: blue; }
-    83% { color: indigo; }
-    100% { color: violet; }
-  }
-
-  .broom {
-    display: none; /* Hide the broom animation on mobile */
-  }
-
-  nav ul {
-    flex-direction: column; /* Stack navigation links vertically */
-    align-items: center; /* Center align navigation links */
-    margin-top: 80px; /* Add spacing below the floating logo */
-  }
-
-  #slideshow-container {
-    height: 300px; /* Reduce height for mobile */
-  }
-
-  .slideshow-image {
-    object-fit: contain; /* Adjust image scaling for smaller screens */
-  }
-
-  #calendar-container {
-    width: 100%;
-    margin: 10px 0;
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
-  }
-
-  #calendar td {
-    height: 50px; /* Adjust cell height for mobile */
-  }
-
-  .popup-window {
-    width: 90%; /* Make the popup take up 90% of the screen width */
-    max-height: 750px; /* Reduce the maximum height */
-    padding: 10px; /* Reduce padding */
-    font-size: 0.9rem; /* Slightly reduce font size for mobile */
-  }
-}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <img src="download.png" alt="Logo image" class="logo">
-  <header class="header-container">
-    <div class="site-title-container">
-      <span class="site-title">
-        <span class="letter">A</span>
-        <span class="letter">n</span>
-        <span class="letter">g</span>
-        <span class="letter">e</span>
-        <span class="letter">l</span>
-        <span class="letter">e</span>
-        <span class="letter">s</span>
-        <span class="letter">&nbsp;</span>
-        <span class="letter">C</span>
-        <span class="letter">l</span>
-        <span class="letter">e</span>
-        <span class="letter">a</span>
-        <span class="letter">n</span>
-        <span class="letter">i</span>
-        <span class="letter">n</span>
-        <span class="letter">g</span>
-      </span>
-      <div class="broom"></div>
+  <header class="site-header">
+    <div class="logo-container">
+      <div class="logo-wrapper">
+        <svg class="logo-svg" width="80" height="80" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="#ADD8E6" />
+          <path d="M30,30 Q50,10 70,30 T70,70 Q50,90 30,70 T30,30" fill="#FF69B4" />
+          <text x="50" y="55" font-family="Gloria Hallelujah" font-size="14" text-anchor="middle" fill="#FFF">AC</text>
+        </svg>
+      </div>
+      <div class="site-title-container">
+        <h1 class="site-title">
+          <span class="title-text">Angeles Cleaning</span>
+          <div class="broom-icon">
+            <i class="fas fa-broom"></i>
+          </div>
+        </h1>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">About Us</a></li>
+    <nav class="site-nav">
+      <ul class="nav-links">
+        <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+        <li><a href="#services"><i class="fas fa-hands-bubbles"></i> Services</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
   </header>
-  <main>
-    <div id="calendar-container">
-      <div id="calendar"></div>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>Professional Cleaning Services</h2>
+      <p>We make your space sparkle. Book your cleaning appointment today!</p>
+      <button class="btn btn-primary btn-book-now">Book Now</button>
     </div>
-    <div id="slideshow-container">
-      <img src="IMG_20250319_163127.jpg" alt="Slideshow Image 1" class="slideshow-image">
-      <img src="IMG_20250319_163131.jpg" alt="Slideshow Image 2" class="slideshow-image">
-      <img src="IMG_20250319_163134.jpg" alt="Slideshow Image 3" class="slideshow-image">
-      <img src="IMG_20250319_163142.jpg" alt="Slideshow Image 4" class="slideshow-image">
-      <img src="IMG_20250319_163149.jpg" alt="Slideshow Image 5" class="slideshow-image">
-      <img src="IMG_20250319_163151.jpg" alt="Slideshow Image 6" class="slideshow-image">
-      <img src="IMG_20250319_163155.jpg" alt="Slideshow Image 7" class="slideshow-image">
-      <img src="IMG_20250319_163158.jpg" alt="Slideshow Image 8" class="slideshow-image">
-      <img src="IMG_20250319_163202.jpg" alt="Slideshow Image 9" class="slideshow-image">
-      <img src="IMG_20250319_163210.jpg" alt="Slideshow Image 10" class="slideshow-image">
-      <img src="IMG_20250319_163213.jpg" alt="Slideshow Image 11" class="slideshow-image">
-      <img src="IMG_20250319_163216.jpg" alt="Slideshow Image 12" class="slideshow-image">
-      <img src="IMG_20250319_163220.jpg" alt="Slideshow Image 13" class="slideshow-image">
-      <img src="IMG_20250319_163224.jpg" alt="Slideshow Image 14" class="slideshow-image">
-      <img src="IMG_20250319_163226.jpg" alt="Slideshow Image 15" class="slideshow-image">
-      <img src="IMG_20250319_163230.jpg" alt="Slideshow Image 16" class="slideshow-image">
-      <img src="IMG_20250319_163235.jpg" alt="Slideshow Image 17" class="slideshow-image">
-      <img src="IMG_20250319_163238.jpg" alt="Slideshow Image 18" class="slideshow-image">
-      <img src="IMG_20250319_163241.jpg" alt="Slideshow Image 19" class="slideshow-image">
-      <img src="OIP.jfif" alt="Slideshow Image 20" class="slideshow-image">
-      <img src="R.jfif" alt="Slideshow Image 21" class="slideshow-image">
+  </section>
+
+  <section id="services" class="services-section">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-home"></i>
+        <h3>Residential Cleaning</h3>
+        <p>Comprehensive cleaning for your home, including kitchen, bathrooms, living areas, and bedrooms.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-building"></i>
+        <h3>Commercial Cleaning</h3>
+        <p>Professional cleaning solutions for offices, retail spaces, and commercial properties.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-spray-can"></i>
+        <h3>Deep Cleaning</h3>
+        <p>Thorough cleaning of all surfaces, fixtures, and hard-to-reach areas.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-calendar-check"></i>
+        <h3>Move-in/Move-out</h3>
+        <p>Detailed cleaning services when moving into a new property or leaving your current one.</p>
+      </div>
     </div>
-  </main>
-  <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </section>
+
+  <section class="booking-section">
+    <h2 class="section-title">Book Your Cleaning</h2>
+    <p class="section-description">Check our availability and schedule your cleaning service.</p>
+    
+    <div id="calendar-container" class="calendar-container">
+      <div id="calendar" class="calendar"></div>
+      <div id="legend" class="legend">
+        <div class="legend-item">
+          <div class="circle available"></div>
+          <span>Available</span>
+        </div>
+        <div class="legend-item">
+          <div class="circle unavailable"></div>
+          <span>Unavailable</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio-section">
+    <h2 class="section-title">Our Work</h2>
+    <p class="section-description">See the difference our cleaning services make</p>
+    <div id="slideshow-container" class="slideshow-container">
+      <!-- Slideshow images will be loaded via JavaScript -->
+    </div>
+    <div class="slideshow-controls">
+      <button id="prev-btn" class="slide-btn"><i class="fas fa-chevron-left"></i></button>
+      <button id="next-btn" class="slide-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <h2 class="section-title">About Us</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>Angeles Cleaning was founded with a simple mission: to provide exceptional cleaning services that transform spaces and enhance lives. Our journey began with a passion for cleanliness and a commitment to excellence.</p>
+        <p>What started as a small family business has grown into a trusted cleaning service provider, known for attention to detail, reliability, and customer satisfaction. We've built our reputation one spotless home and satisfied customer at a time.</p>
+        <p>Today, we continue to uphold the same values that guided us from the beginning: integrity, quality, and care in everything we do.</p>
+      </div>
+      <div class="about-values">
+        <div class="value-item">
+          <i class="fas fa-star"></i>
+          <h3>Excellence</h3>
+          <p>We strive for excellence in every cleaning job, no matter how big or small.</p>
+        </div>
+        <div class="value-item">
+          <i class="fas fa-heart"></i>
+          <h3>Care</h3>
+          <p>We treat your home or business with the same care and attention we would our own.</p>
+        </div>
+        <div class="value-item">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Integrity</h3>
+          <p>We operate with honesty, transparency, and respect in all our dealings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <p>(123) 456-7890</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <p>info@angelescleaning.com</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Los Angeles, CA</p>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3>Angeles Cleaning</h3>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Subscribe to our newsletter for cleaning tips and special offers</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Angeles Cleaning. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Booking Popup Window -->
+  <div id="booking-popup" class="popup-window" style="display: none;">
+    <h2>Book Your Cleaning Service</h2>
+    <form id="booking-form">
+      <div class="form-group">
+        <label for="booking-name">Name</label>
+        <input type="text" id="booking-name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="booking-email">Email</label>
+        <input type="email" id="booking-email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="booking-phone">Phone</label>
+        <input type="tel" id="booking-phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="booking-address">Address</label>
+        <input type="text" id="booking-address" name="address" required>
+      </div>
+      <div class="form-group">
+        <label for="booking-date">Date</label>
+        <input type="text" id="booking-date" name="date" readonly>
+      </div>
+      <div class="form-group">
+        <label for="booking-service">Service Type</label>
+        <select id="booking-service" name="service" required>
+          <option value="">Select a service</option>
+          <option value="residential">Residential Cleaning</option>
+          <option value="commercial">Commercial Cleaning</option>
+          <option value="deep">Deep Cleaning</option>
+          <option value="move">Move-in/Move-out Cleaning</option>
+        </select>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-book">Book Now</button>
+        <button type="button" id="close-popup" class="btn btn-cancel">Cancel</button>
+      </div>
+    </form>
+  
+
+  <!-- Script -->
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("wapdNFB-3F2V85ECR");
+  })();
 </script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "wapdNFB-3F2V85ECR",
-      });
-   })();
-</script>
-  <script>
-    const calendar = document.getElementById('calendar');
-
-// Get the current year and month
-const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth(); // 0-based index (0 = January, 11 = December)
-
-// Get the number of days in the current month
-const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-// Array of month names for display
-const monthNames = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-];
-
-// Generate the calendar HTML
-const calendarHTML = `
-  <h2>${monthNames[currentMonth]} ${currentYear}</h2>
-  <div id="legend">
-    <div class="legend-item">
-      <div class="circle available"></div>
-      <span>Available</span>
-    </div>
-    <div class="legend-item">
-      <div class="circle unavailable"></div>
-      <span>Unavailable</span>
-    </div>
-  </div>
-  <table>
-    <tr>
-      <th>Sun</th>
-      <th>Mon</th>
-      <th>Tue</th>
-      <th>Wed</th>
-      <th>Thu</th>
-      <th>Fri</th>
-      <th>Sat</th>
-    </tr>
-    ${getCalendarRows(currentYear, currentMonth, daysInMonth)}
-  </table>
-`;
-
-calendar.innerHTML = calendarHTML;
-
-// Function to generate calendar rows
-function getCalendarRows(year, month, daysInMonth) {
-  let rows = '';
-  let day = 1;
-
-  // Get the day of the week for the first day of the month
-  const firstDayOfWeek = new Date(year, month, 1).getDay();
-
-  for (let i = 0; i < 6; i++) { // Maximum 6 rows in a calendar
-    rows += '<tr>';
-    for (let j = 0; j < 7; j++) {
-      if (i === 0 && j < firstDayOfWeek) {
-        // Empty cells before the first day of the month
-        rows += '<td class="empty"></td>';
-      } else if (day > daysInMonth) {
-        // Empty cells after the last day of the month
-        rows += '<td class="empty"></td>';
-      } else {
-        const isWeekend = (j === 0 || j === 6); // Sunday (0) or Saturday (6)
-        const weekendClass = isWeekend ? 'weekend' : 'weekday';
-        const backgroundColor = isWeekend ? 'background-color: #ff4d4d;' : 'background-color: #90ee90;';
-        rows += `<td data-day="${day}" class="day-${day} ${weekendClass}" style="${backgroundColor}">${day}</td>`;
-        day++;
-      }
-    }
-    rows += '</tr>';
-    if (day > daysInMonth) break; // Stop if all days are added
-  }
-  return rows;
-}
-
-// Add event listener to each table cell
-const tableCells = document.querySelectorAll('#calendar td');
-tableCells.forEach((cell) => {
-  if (cell.dataset.day) {
-    cell.addEventListener('click', () => {
-      const day = cell.dataset.day;
-      createPopupWindow(day);
-    });
-  }
-});
-
-// Function to generate time options dynamically
-function generateTimeOptions() {
-  const timeOptions = [];
-  let hour = 6; // Start at 6:00 AM
-  let minute = 0;
-
-  while (hour < 14 || (hour === 14 && minute === 0)) { // End at 2:00 PM
-    const ampm = hour < 12 ? 'AM' : 'PM';
-    const displayHour = hour % 12 === 0 ? 12 : hour % 12; // Convert to 12-hour format
-    const displayMinute = minute === 0 ? '00' : '30';
-    timeOptions.push(`${displayHour}:${displayMinute} ${ampm}`);
-    minute += 30;
-    if (minute === 60) {
-      minute = 0;
-      hour++;
-    }
-  }
-
-  return timeOptions;
-}
-
-// Function to create popup window
-function createPopupWindow(day) {
-  // Check if a popup window already exists
-  const existingPopup = document.querySelector('.popup-window');
-  if (existingPopup) {
-    existingPopup.remove();
-  }
-
-  // Generate time options dynamically
-  const timeOptions = generateTimeOptions();
-  const timeOptionsHTML = timeOptions.map(option => `<option value="${option}">${option}</option>`).join('');
-
-  const popupHTML = `
-    <div class="popup-window">
-      <h2>Day ${day} - ${monthNames[currentMonth]} ${currentYear}</h2>
-      <form id="booking-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" name="phone" required><br><br>
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required><br><br>
-        <label for="time">Time:</label>
-        <select id="time" name="time" required>
-          ${timeOptionsHTML}
-        </select><br><br>
-        <input type="submit" value="Send">
-      </form>
-      <button class="close-button">Close</button>
-    </div>
-  `;
-
-  const popupWindow = document.createElement('div');
-  popupWindow.innerHTML = popupHTML;
-  document.body.appendChild(popupWindow);
-
-  // Add event listener to close button
-  const closeButton = popupWindow.querySelector('.close-button');
-  closeButton.addEventListener('click', () => {
-    popupWindow.remove();
-  });
-
-  // Add event listener to form submit
-  const form = popupWindow.querySelector('#booking-form');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    // Get form values
-    const name = form.querySelector('#name').value;
-    const phone = form.querySelector('#phone').value;
-    const address = form.querySelector('#address').value;
-    const time = form.querySelector('#time').value;
-
-    // EmailJS configuration
-    const serviceId = 'service_wrhj469';
-    const templateId = 'template_ufeoq0r';
-    const userId = 'wapdNFB-3F2V85ECR';
-
-    // Template parameters
-    const templateParams = {
-      name: name,
-      phone: phone,
-      address: address,
-      time: time,
-      day: day,
-      month: monthNames[currentMonth], // Current month
-      year: currentYear // Current year
-    };
-
-    // Send email using EmailJS
-    emailjs.send(serviceId, templateId, templateParams, userId)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-
-        // Get the day box element
-        const dayBox = document.querySelector(`.day-${day}`);
-
-        // Add a class to the day box to fill it with red color
-        dayBox.classList.add('booked');
-
-        // Close the popup window
-        popupWindow.remove();
-      }, (err) => {
-        console.log('FAILED...', err);
-      });
-  });
-}
-// Slideshow functionality
-const images = document.querySelectorAll('.slideshow-image');
-let currentIndex = 0;
-
-function showNextImage() {
-  images[currentIndex].classList.remove('active');
-  currentIndex = (currentIndex + 1) % images.length;
-  images[currentIndex].classList.add('active');
-}
-
-setInterval(showNextImage, 5000);
-
-if (images.length > 0) {
-  images[currentIndex].classList.add('active');
-}
-  </script>
 </body>
 </html>
